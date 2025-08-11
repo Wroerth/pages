@@ -54,15 +54,20 @@ nav a {
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: color 0.25s ease;
+  padding: 0; /* sin padding extra */
+  transition: background-color 0.3s ease, padding 0.3s ease, border-radius 0.3s ease;
 }
 
 nav a:hover,
 nav a:focus {
+  background-color: #e3f2fd;
+  border-radius: 4px;
+  padding: 5px;
   color: #0051a3;
   outline: none;
   text-decoration: underline;
 }
+
 
 /* Adaptabilidad para móviles */
 @media (max-width: 600px) {
@@ -75,3 +80,4 @@ nav a:focus {
     padding: 1rem;
   }
 }
+
