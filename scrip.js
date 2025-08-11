@@ -1,32 +1,15 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    
-    const links = document.querySelectorAll('nav ul li a');
+  const links = document.querySelectorAll('nav ul li a');
 
-    
-    links.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            link.style.backgroundColor = '#e3f2fd';
-            link.style.borderRadius = '4px';
-            link.style.padding = '5px';
-            link.style.transition = 'background-color 0.3s ease';
-        });
-
-        link.addEventListener('mouseleave', () => {
-            link.style.backgroundColor = 'transparent';
-            link.style.padding = '0';
-        });
+  // Agrega clase para hover usando CSS, no JS (solo para el click)
+  links.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const url = link.href;
+      const userConfirmed = confirm(`¿Estás seguro de que deseas visitar:\n${url}?`);
+      if (userConfirmed) {
+        window.open(url, '_blank');
+      }
     });
-
-    
-    links.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault(); 
-            const userConfirmed = confirm(`¿Estás seguro de que deseas visitar: ${link.href}?`);
-            if (userConfirmed) {
-                window.open(link.href, '_blank'); 
-            }
-        });
-    });
+  });
 });
